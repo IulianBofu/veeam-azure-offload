@@ -1,6 +1,6 @@
 # 🚀 Veeam CE → Azure Offload Demo ($3/mo for 300GB)
 
-**Low-cost hybrid backup for construction SMEs: Free Veeam + Fast AzCopy + Cheap Azure.**
+**Low-cost hybrid backup for SMEs: Free Veeam + Fast AzCopy + Cheap Azure.**
 
 ## 🎯 Value Proposition
 | Traditional | CyberBuild Solutions|
