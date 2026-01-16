@@ -29,7 +29,7 @@ Email: iulian@cyberbuildsolutions.com
 
 Location: Bucharest, Romania
 
-Web: cyberbuild.com
+Web: cyberbuildsolutions.com
 
 Need a custom implementation? Contact us 👈
 
