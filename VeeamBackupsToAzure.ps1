@@ -13,7 +13,7 @@ param([string]$VeeamJobName="",[Parameter(Mandatory)][string]$LocalBackupPath,[P
 
 function Write-Log{param([string]$Msg,[string]$Level="INFO");$ts=(Get-Date).ToString("yyyy-MM-dd HH:mm:ss");Write-Host "[$ts] [$Level] $Msg"}
 
-if($VeeamJobName){try{Add-PSSnapin VeeamPSSnapIn -EA Stop;$job=Get-VBRJob -Name $VeeamJobName;Write-Log "⏳ Waiting for $VeeamJobName...";do{Start-Sleep 60}while((Get-VBRBackupSession -JobName $VeeamJobName|Sort EndTime -Desc|Select -1).State -notin@("Stopped","Failed","Warning"))}catch{Write-Log "Skip Veeam monitoring (normal for CE)" "WARN"}}
+if($VeeamJobName){try{Add-PSSnapin VeeamPSSnapIn -EA Stop;$job=Get-VBRJob -Name $VeeamJobName;Write-Log "⏳ Waiting for $VeeamJobName...";do{Start-Sleep 60}while((Get-VBRBackupSession -JobName $VeeamJobName|Sort EndTime -Desc|Select -1).State -notin @("Stopped","Failed","Warning"))}catch{Write-Log "Skip Veeam monitoring (normal for CE)" "WARN"}}
 
 if(!(Test-Path $LocalBackupPath)){Write-Log "❌ Path not found: $LocalBackupPath";exit 1}
 $dest=$AzureContainerSasUrl;if($AzureSubFolder -and $dest[-1] -ne"/"){$dest+="/";}$dest+=$AzureSubFolder;Write-Log "📤 Sync: $LocalBackupPath → $dest"
